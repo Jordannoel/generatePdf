@@ -74,9 +74,7 @@ public class FicheProduit {
             rect.setBorderWidth(2);
             canvas.rectangle(rect);
             this.document.close();
-        } catch (DocumentException e) {
-            e.printStackTrace();
-        } catch (FileNotFoundException e) {
+        } catch (DocumentException | FileNotFoundException e) {
             e.printStackTrace();
         }
     }

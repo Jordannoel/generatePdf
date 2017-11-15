@@ -15,7 +15,11 @@ public class GenererFiches {
             ficheProduit.generer();
 
             Planche planche = new Planche(documentProduit, produit, "Planche " + produit.getNom() + ".pdf");
-            planche.generer();
+            try {
+                planche.generer();
+            } catch (Exception e){
+                e.printStackTrace();
+            }
         }
     }
 }
