@@ -1,4 +1,5 @@
 import com.itextpdf.text.Document;
+import org.apache.commons.cli.CommandLine;
 
 import java.util.List;
 
@@ -6,7 +7,10 @@ public class GenererFiches {
 
     public static void main(String args[]) {
 
-        List<Produit> produits = Tools.getProduits("donnees.csv");
+//        CommandLine commandLine = CommandLineUtils.;
+        String fileName = "";
+//        fileName = commandLine.getOptionValue("i");
+        List<Produit> produits = CsvOperations.getProduits(fileName == "" ? "donnees.csv" : fileName);
         for (Produit produit : produits) {
             Document documentFiche = new Document();
             Document documentProduit = new Document();
@@ -17,7 +21,7 @@ public class GenererFiches {
             Planche planche = new Planche(documentProduit, produit, "Planche " + produit.getNom() + ".pdf");
             try {
                 planche.generer();
-            } catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }

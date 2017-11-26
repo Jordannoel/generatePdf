@@ -2,10 +2,10 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Tools {
+public class CsvOperations {
 
     public static List<Produit> getProduits(String nomFichier) {
-        List<String> lignes = Tools.readFile(nomFichier);
+        List<String> lignes = CsvOperations.readFile(nomFichier);
         List<Produit> produits = new ArrayList<>();
         for (String ligne : lignes) {
             String[] ligneCoupee = ligne.split(";");
